@@ -1,0 +1,64 @@
+Instructions for Arduino IDE Setup (ESP32-S3 + OV2640 Camera)
+
+Please make sure to follow these steps in Arduino IDE to upload and run the example correctly:
+
+1. Install ESP32 Board Support
+
+Open Arduino IDE → File → Preferences → in "Additional Board Manager URLs" add:
+
+https://dl.espressif.com/dl/package_esp32_index.json
+
+Then go to Tools → Board → Boards Manager and install "esp32 by Espressif Systems" (latest version).
+
+
+
+2. Select the Correct Board Settings
+
+Board: ESP32S3 Dev Module
+
+USB CDC On Boot: Enabled
+
+Flash Mode: QIO
+
+Flash Size: (depending on the module, usually 8MB or 16MB)
+
+PSRAM: Enabled
+
+Partition Scheme: Huge APP (3MB No OTA/1MB SPIFFS)
+
+Upload Speed: 921600
+
+Programmer: USB-CDC (UART0)
+
+
+
+3. Library
+
+Include the ESP32 Camera library (already comes with the ESP32 board package).
+
+Example can be found under: File → Examples → ESP32 → Camera → CameraWebServer.
+
+
+
+4. WiFi Credentials
+
+In the sketch, update:
+
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+
+
+5. Upload & Run
+
+Connect the ESP32-S3 board via USB-C.
+
+Select the correct COM port.
+
+Upload the code.
+
+Open Serial Monitor (115200 baud).
+
+After connection, it will print the IP address. Open that in a browser to see the camera stream.
+
+	
